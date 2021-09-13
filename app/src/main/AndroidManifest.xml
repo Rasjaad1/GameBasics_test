@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FootballSimulation">
+        <activity
+            android:name=".RoundOneActivity"
+            android:label="@string/title_activity_round_one"
+            android:theme="@style/Theme.FootballSimulation.NoActionBar"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

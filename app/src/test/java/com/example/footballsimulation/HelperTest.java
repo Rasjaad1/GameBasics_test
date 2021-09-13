@@ -1,7 +1,5 @@
 package com.example.footballsimulation;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class HelperTest {
 
     @org.junit.jupiter.api.Test

@@ -62,7 +62,7 @@ public class Helper {
         if (chance <= odds) {
             goal = (int) ((Math.random() * 1) * (t1.getteamAttackingStrength() - t2.getTeamDefensiveStrength()));
             if (goal == 1) {
-                System.out.println("true");
+                //System.out.println("true");
                 changeScoreAndConceded(t1, t2);
                 return true;
             }
