@@ -43,29 +43,30 @@ public class Helper {
     }
 
 
-    public void doSomething(Team t1, Team t2) {
+    public void countDownTime(Team t1, Team t2) {
         int time = 0;
         do {
             time++;
 
-            changeName(t1, t2);
-            changeName(t2, t1);
+            if (hasScored(t1, t2)) ;
+            else hasScored(t2, t1);
+
         } while (time != 90);
     }
 
-    public void changeName(Team t1, Team t2) {
+    public boolean hasScored(Team t1, Team t2) {
         int goal;
         Random r = new Random();
         float odds = changeOdds(t1, t2);
         float chance = r.nextFloat();
-        System.out.println("odds " + odds);
-        System.out.println("chance " + chance);
         if (chance <= odds) {
             goal = (int) ((Math.random() * 1) * (t1.getteamAttackingStrength() - t2.getTeamDefensiveStrength()));
             if (goal == 1) {
-                System.out.println(t1.getTeamName() + " goal " + goal);
+                System.out.println("true");
                 changeScoreAndConceded(t1, t2);
+                return true;
             }
         }
+        return false;
     }
 }
