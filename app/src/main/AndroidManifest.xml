@@ -8,12 +8,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FootballSimulation">
+        android:theme="@style/Theme.FootballSimulation.NoActionBar">
         <activity
-            android:name=".RoundOneActivity"
-            android:label="@string/title_activity_round_one"
+            android:name=".EndResultActivity"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.FootballSimulation.NoActionBar"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="landscape"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
