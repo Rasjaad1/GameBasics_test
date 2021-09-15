@@ -12,22 +12,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class RoundOneActivity extends AppCompatActivity {
+import static com.example.footballsimulation.Match.matches;
+
+public class EndResultActivity extends AppCompatActivity {
     public ArrayList<Team> items = new ArrayList<>();
 
     Team ajax = new Team("Ajax", 85, 78);
     Team psv = new Team("psv", 83, 79);
     Team ado = new Team("ado", 72, 65);
-    Team feyenoord = new Team("feyenoord", 76, 70);
+    Team feyenoord = new Team("feyenoord", 76, 73);
     Simulate simulate = new Simulate();
 
     TableLayout tablelayout;
+    TextView txt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_round_one_table);
+        setContentView(R.layout.activity_end_result);
 
         Switch layoutSwitch = findViewById(R.id.switch1);
 
@@ -37,17 +40,22 @@ public class RoundOneActivity extends AppCompatActivity {
         sortTeams();
 
         tablelayout = (TableLayout) findViewById(R.id.tablelayout);
+        txt = findViewById(R.id.testtxt);
+        txt.setVisibility(View.INVISIBLE);
 
         fillLeagueTable();
+        fillLeagueMatchups();
 
         layoutSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     tablelayout.setVisibility(View.INVISIBLE);
+                    txt.setVisibility(View.VISIBLE);
 
                 } else {
                     tablelayout.setVisibility(View.VISIBLE);
+                    txt.setVisibility(View.INVISIBLE);
                 }
             }
 
@@ -99,6 +107,12 @@ public class RoundOneActivity extends AppCompatActivity {
             //Add row to the table
             tablelayout.addView(tableRow);
         }
+    }
+
+    public void fillLeagueMatchups() {
+
+        //ToDo need to add a way to seperate and count score of every match.
+        txt.setText(String.valueOf(matches.get(0).getScore()));
     }
 
 }
