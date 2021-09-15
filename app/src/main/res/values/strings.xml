@@ -9,4 +9,16 @@
 
     <string name="hello_first_fragment">Start round 1</string>
     <string name="hello_second_fragment">Round 1 scores. Arg: %1$s</string>
+    <string name="start_simulation">START SIMULATION</string>
+    <string name="main_activity_text">Press the button to start the group simulation.</string>
+
+    <string name="table_club_txt">Club:</string>
+    <string name="table_points_txt">Points:</string>
+    <string name="table_wins_txt">Win:</string>
+    <string name="table_ties_txt">Tie:</string>
+    <string name="table_loss_txt">Loss:</string>
+    <string name="table_gs_txt">GS:</string>
+    <string name="table_gc_txt">GC:</string>
+    <string name="table_gd_txt">GD:</string>
+
 </resources>
