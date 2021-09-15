@@ -7,7 +7,7 @@ public class Team {
     private final int teamDefensiveStrength;
     private int score;
     private int conceded;
-    private int goalDifference;
+    private Integer goalDifference;
     private Integer points;
     private int win;
     private int tie;
@@ -58,7 +58,7 @@ public class Team {
         this.goalDifference = goalDifference;
     }
 
-    public int getGoalDifference() {
+    public Integer getGoalDifference() {
         return goalDifference;
     }
 
