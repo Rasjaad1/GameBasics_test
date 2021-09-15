@@ -1,7 +1,10 @@
 package com.example.footballsimulation;
 
+import java.util.ArrayList;
+
 public class Match {
 
+    public static ArrayList<Team> matches = new ArrayList<>();
     Helper helper = new Helper();
 
 
@@ -27,6 +30,8 @@ public class Match {
 
     public void MatchResult(Team t1, Team t2) {
         getMatchup(t1, t2);
+        matches.add(t1);
+        matches.add(t2);
         helper.countDownTime(t1, t2);
         if (t1.getScore() > t2.getScore()) {
             matchWon(t1, t2);
