@@ -25,17 +25,17 @@ public class Match {
 
     public void countDownTime(Team teamHome, Team teamAway) {
         for (int i = 0; i <= 90; i++) {
-            if (hasScored(teamHome, teamAway) == 1) {
+            if (hasScored(teamHome, teamAway)) {
                 helper.changeScoreAndConcededPoints(teamHome, teamAway);
                 ++i;
-            } else if (hasScored(teamAway, teamHome) == 1) {
+            } else if (hasScored(teamAway, teamHome)) {
                 helper.changeScoreAndConcededPoints(teamAway, teamHome);
                 ++i;
             }
         }
     }
 
-    public int hasScored(Team teamHome, Team teamAway) {
+    public boolean hasScored(Team teamHome, Team teamAway) {
         int goal = 0;
         Random r = new Random();
         float odds = helper.changeOdds(teamHome, teamAway);
@@ -43,10 +43,11 @@ public class Match {
         if (chance <= odds) {
             goal = (int) ((Math.random() * 1) * (teamHome.getteamAttackingStrength() - teamAway.getTeamDefensiveStrength()));
             if (goal == 1) {
-                return goal;
+                System.out.println(teamHome.getTeamName() + " has scored!");
+                return true;
             }
         }
-        return goal;
+        return false;
     }
 
     public void playMatch(Team teamHome, Team teamAway) {
