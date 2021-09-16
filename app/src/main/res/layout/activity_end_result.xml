@@ -7,7 +7,7 @@
     tools:context=".EndResultActivity">
 
     <TableLayout
-        android:id="@+id/tablelayout"
+        android:id="@+id/league_table_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true">
@@ -75,12 +75,62 @@
                 android:text="@string/table_gd_txt" />
         </TableRow>
     </TableLayout>
-
-    <TextView
-        android:id="@+id/testtxt"
+    <ScrollView android:id="@+id/layout"
+        android:layout_height="match_parent"
+        android:scrollbars="horizontal|vertical"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dip"
+        android:scrollbarStyle="outsideInset"
+        android:fillViewport="true"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableLayout
+        android:id="@+id/individual_matches_tablelayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:layout_centerHorizontal="true">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/matchNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/club_header_table"
+                />
+
+            <TextView
+                android:id="@+id/teamHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/club_header_table"
+                />
+
+            <TextView
+                android:id="@+id/teamHomeScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/values_header_table"
+                 />
+
+            <TextView
+                android:id="@+id/teamAway"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/values_header_table"
+                 />
+
+            <TextView
+                android:id="@+id/teamAwayScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/values_header_table"
+                 />
+        </TableRow>
+    </TableLayout>
+    </ScrollView>
 
 
     <Switch
