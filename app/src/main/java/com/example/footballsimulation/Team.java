@@ -6,6 +6,7 @@ public class Team {
     private final int teamAttackingStrength;
     private final int teamDefensiveStrength;
     private int score;
+    private int totalScore;
     private int conceded;
     private Integer goalDifference;
     private Integer points;
@@ -17,6 +18,7 @@ public class Team {
         this.teamName = teamName;
         this.teamAttackingStrength = teamAttackingStrength;
         this.teamDefensiveStrength = teamDefensiveStrength;
+        totalScore = 0;
         score = 0;
         conceded = 0;
         goalDifference = 0;
@@ -44,6 +46,18 @@ public class Team {
 
     public int getScore() {
         return score;
+    }
+
+    public int clearScore() {
+        return score = 0;
+    }
+
+    public void setTotalScore(int totalScore) {
+        this.totalScore = totalScore;
+    }
+
+    public int getTotalScore() {
+        return totalScore;
     }
 
     public void setConceded(int conceded) {
