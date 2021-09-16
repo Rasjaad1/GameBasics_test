@@ -1,17 +1,11 @@
 package com.example.footballsimulation;
 
-
-import java.util.ArrayList;
+import java.util.Random;
 
 public class Match {
 
-    Helper helper = new Helper();
+    private final Helper helper = new Helper();
 
-
-    public void getMatchup(Team teamHome, Team teamAway) {
-        String text = teamHome.getTeamName() + " vs " + teamAway.getTeamName();
-        System.out.println(text);
-    }
 
     public void matchWon(Team teamWon, Team teamLost) {
         System.out.println(teamWon.getTeamName() + " has won!");
@@ -28,15 +22,36 @@ public class Match {
         teamAway.setTie(teamAway.getTie() + 1);
     }
 
-    public void playMatch(Team teamHome, Team teamAway, ArrayList<Team> individualMatchListHome, ArrayList<Team> individualMatchListAway) {
-        MatchResult(teamHome, teamAway);
-        individualMatchListHome.add(teamHome);
-        individualMatchListAway.add(teamAway);
+
+    public void countDownTime(Team teamHome, Team teamAway) {
+        for (int i = 0; i <= 90; i++) {
+            if (hasScored(teamHome, teamAway) == 1) {
+                helper.changeScoreAndConcededPoints(teamHome, teamAway);
+                ++i;
+            } else if (hasScored(teamAway, teamHome) == 1) {
+                helper.changeScoreAndConcededPoints(teamAway, teamHome);
+                ++i;
+            }
+        }
     }
 
-    public void MatchResult(Team teamHome, Team teamAway) {
-        getMatchup(teamHome, teamAway);
-        helper.countDownTime(teamHome, teamAway);
+    public int hasScored(Team teamHome, Team teamAway) {
+        int goal = 0;
+        Random r = new Random();
+        float odds = helper.changeOdds(teamHome, teamAway);
+        float chance = r.nextFloat();
+        if (chance <= odds) {
+            goal = (int) ((Math.random() * 1) * (teamHome.getteamAttackingStrength() - teamAway.getTeamDefensiveStrength()));
+            if (goal == 1) {
+                return goal;
+            }
+        }
+        return goal;
+    }
+
+    public void playMatch(Team teamHome, Team teamAway) {
+        System.out.println(teamHome.getTeamName() + " vs " + teamAway.getTeamName());
+        countDownTime(teamHome, teamAway);
         if (teamHome.getTotalScore() > teamAway.getTotalScore()) {
             matchWon(teamHome, teamAway);
         } else if (teamHome.getTotalScore() == teamAway.getTotalScore()) {
