@@ -20,5 +20,6 @@
     <string name="table_gs_txt">GS:</string>
     <string name="table_gc_txt">GC:</string>
     <string name="table_gd_txt">GD:</string>
+    <string name="vs">VS</string>
 
 </resources>
