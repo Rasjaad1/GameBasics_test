@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void startSimulationRound1Activity(View view) {
+    public void startEndResultActivity(View view) {
         Intent intent = new Intent(this, EndResultActivity.class);
         startActivity(intent);
     }
