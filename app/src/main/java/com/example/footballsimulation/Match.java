@@ -1,15 +1,15 @@
 package com.example.footballsimulation;
 
+
 import java.util.ArrayList;
 
 public class Match {
 
-    public static ArrayList<Team> matches = new ArrayList<>();
     Helper helper = new Helper();
 
 
-    public void getMatchup(Team t1, Team t2) {
-        String text = t1.getTeamName() + " vs " + t2.getTeamName();
+    public void getMatchup(Team teamHome, Team teamAway) {
+        String text = teamHome.getTeamName() + " vs " + teamAway.getTeamName();
         System.out.println(text);
     }
 
@@ -20,25 +20,29 @@ public class Match {
         teamWon.setPoints(teamWon.getPoints() + 3);
     }
 
-    public void matchTied(Team t1, Team t2) {
+    public void matchTied(Team teamHome, Team teamAway) {
         System.out.println("It's a tie!");
-        t1.setPoints(t1.getPoints() + 1);
-        t1.setTie(t1.getTie() + 1);
-        t2.setPoints(t2.getPoints() + 1);
-        t2.setTie(t2.getTie() + 1);
+        teamHome.setPoints(teamHome.getPoints() + 1);
+        teamHome.setTie(teamHome.getTie() + 1);
+        teamAway.setPoints(teamAway.getPoints() + 1);
+        teamAway.setTie(teamAway.getTie() + 1);
     }
 
-    public void MatchResult(Team t1, Team t2) {
-        getMatchup(t1, t2);
-        matches.add(t1);
-        matches.add(t2);
-        helper.countDownTime(t1, t2);
-        if (t1.getScore() > t2.getScore()) {
-            matchWon(t1, t2);
-        } else if (t1.getScore() == t2.getScore()) {
-            matchTied(t1, t2);
+    public void playMatch(Team teamHome, Team teamAway, ArrayList<Team> individualMatchListHome, ArrayList<Team> individualMatchListAway) {
+        MatchResult(teamHome, teamAway);
+        individualMatchListHome.add(teamHome);
+        individualMatchListAway.add(teamAway);
+    }
+
+    public void MatchResult(Team teamHome, Team teamAway) {
+        getMatchup(teamHome, teamAway);
+        helper.countDownTime(teamHome, teamAway);
+        if (teamHome.getTotalScore() > teamAway.getTotalScore()) {
+            matchWon(teamHome, teamAway);
+        } else if (teamHome.getTotalScore() == teamAway.getTotalScore()) {
+            matchTied(teamHome, teamAway);
         } else {
-            matchWon(t2, t1);
+            matchWon(teamAway, teamHome);
         }
     }
 
