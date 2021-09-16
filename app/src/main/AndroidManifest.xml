@@ -12,7 +12,7 @@
         <activity
             android:name=".EndResultActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.FootballSimulation.NoActionBar"></activity>
+            android:theme="@style/Theme.FootballSimulation.NoActionBar" />
         <activity android:name=".MainActivity"
             android:screenOrientation="landscape"
             >
