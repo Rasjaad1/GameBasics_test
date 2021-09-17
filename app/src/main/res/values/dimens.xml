@@ -3,4 +3,5 @@
     <dimen name="txt_size">20dp</dimen>
     <dimen name="club_header_table">10dp</dimen>
     <dimen name="values_header_table">20dp</dimen>
+    <dimen name="league_table_header">20dp</dimen>
 </resources>

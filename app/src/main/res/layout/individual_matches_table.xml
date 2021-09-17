@@ -60,6 +60,7 @@
         android:layout_weight="1"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="@dimen/values_header_table"
+        android:paddingRight="10dp"
         android:textSize="@dimen/txt_size"
         android:textColor="@color/black"  />
 </TableRow>

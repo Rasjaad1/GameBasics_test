@@ -13,10 +13,10 @@ import java.util.ArrayList;
 
 public class EndResultActivity extends AppCompatActivity {
 
-    private final Team ajax = new Team("Ajax", 85, 78);
-    private final Team psv = new Team("psv", 82, 77);
-    private final Team ado = new Team("ado", 72, 65);
-    private final Team feyenoord = new Team("feyenoord", 76, 73);
+    private final Team ajax = new Team("Ajax", 85, 77);
+    private final Team psv = new Team("psv", 81, 76);
+    private final Team ado = new Team("ado", 77, 74);
+    private final Team feyenoord = new Team("feyenoord", 79, 75);
 
     private final Match match = new Match();
     private final Helper helper = new Helper();
@@ -27,6 +27,7 @@ public class EndResultActivity extends AppCompatActivity {
     private TextView teamHome;
 
     private int matchNumber = 1;
+    private int number = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +85,9 @@ public class EndResultActivity extends AppCompatActivity {
             TextView tv;
 
             //Filling in cells
+            tv = tableRow.findViewById(R.id.tableCell0);
+            tv.setText(String.valueOf(number));
+
             tv = tableRow.findViewById(R.id.tableCell1);
             tv.setText(ar.getTeamName());
 
@@ -108,8 +112,10 @@ public class EndResultActivity extends AppCompatActivity {
             tv = tableRow.findViewById(R.id.tableCell8);
             tv.setText(String.valueOf(ar.getGoalDifference()));
 
+            tableRow.setBackgroundResource(R.drawable.border);
             //Add row to the table
             league_table_layout.addView(tableRow);
+            ++number;
         }
     }
 
@@ -135,6 +141,7 @@ public class EndResultActivity extends AppCompatActivity {
         tv = tableRow.findViewById(R.id.tableCell5);
         tv.setText(String.valueOf(teamAway.getScore()));
 
+        tableRow.setBackgroundResource(R.drawable.border);
         //Add row to the table
         individual_matches_tablelayout.addView(tableRow);
         ++matchNumber;
